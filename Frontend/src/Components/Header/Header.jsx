@@ -44,12 +44,20 @@ export default function Header() {
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                     }
                                 >
-                                    Teaching Details
+                                    Faculty
                                 </NavLink>
                                 <ul className="absolute left-0 mt-2 w-48 bg-white  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
                                     <li>
                                     <NavLink
-                                        to="/teaching-staff"
+                                        to="/HodDesk"
+                                        className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                        }
+                                    >
+                                        HOD Desk
+                                    </NavLink>
+                                    <NavLink
+                                        to="/Teaching"
                                         className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                         }
@@ -59,7 +67,7 @@ export default function Header() {
                                     </li>
                                     <li>
                                     <NavLink
-                                        to="/Non-teaching-staff"
+                                        to="/NonTeaching"
                                         className={({ isActive }) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                         }
