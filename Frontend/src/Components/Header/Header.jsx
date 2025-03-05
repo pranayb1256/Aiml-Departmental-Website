@@ -1,16 +1,10 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import {Link, NavLink} from 'react-router-dom'
 
 export default function Header() {
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const [facultyDropdownOpen, setFacultyDropdownOpen] = useState(false);
-
     return (
-        <header className="sticky top-0 z-50 bg-white shadow-md">
-            <nav className="px-4 lg:px-6 py-3">
-                <div className="flex justify-between items-center mx-auto max-w-screen-xl">
-                    {/* Logo */}
+        <header className=" sticky z-50 top-0">
+            <nav className="bg-white px-4 lg:px-6 py-2.5">
+                <div className="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     <Link to="/" className="flex items-center">
                         <img
                             src="https://ltce.in/img_ltce/logo-b.png"
@@ -18,124 +12,127 @@ export default function Header() {
                             alt="Logo"
                         />
                     </Link>
-
-                    {/* Hamburger Menu (Mobile) */}
-                    <button
-                        className="lg:hidden text-gray-700 text-2xl"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <FaTimes /> : <FaBars />}
-                    </button>
-
-                    {/* Navigation Links */}
                     <div
-                        className={`${
-                            mobileMenuOpen ? "block" : "hidden"
-                        } lg:flex flex-col lg:flex-row lg:space-x-8 w-full lg:w-auto`}
+                        className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
+                        id="mobile-menu-2"
                     >
-                        <ul className="flex flex-col lg:flex-row lg:space-x-8">
+                        <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                             <li>
-                                <NavLink to="/" className="nav-link">
+                                <NavLink
+                                to="/"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
                                     Home
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/about" className="nav-link">
+                                <NavLink
+                                to="/about"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
                                     About
                                 </NavLink>
                             </li>
-
-                            {/* Faculty (Dropdown) */}
-                            <li className="relative">
-                                <button
-                                    onClick={() =>
-                                        setFacultyDropdownOpen(!facultyDropdownOpen)
+                            <li>
+                            <div className="relative group">
+                             <NavLink
+                                      className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                     }
-                                    className="nav-link flex justify-between w-full lg:w-auto"
                                 >
-                                    Faculty ▼
-                                </button>
-
-                                {/* Dropdown Items */}
-                                <ul
-                                    className={`absolute lg:relative left-0 w-48 bg-white shadow-md lg:shadow-none transition-all duration-300 ${
-                                        facultyDropdownOpen ? "block" : "hidden"
-                                    } lg:block lg:opacity-100`}
-                                >
+                                    Faculty
+                                </NavLink>
+                                <ul className="absolute left-0 mt-2 w-48 bg-white  opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
                                     <li>
-                                        <NavLink to="/HodDesk" className="dropdown-link">
-                                            HOD Desk
-                                        </NavLink>
+                                    <NavLink
+                                        to="/HodDesk"
+                                        className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                        }
+                                    >
+                                        HOD Desk
+                                    </NavLink>
+                                    <NavLink
+                                        to="/Teaching"
+                                        className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                        }
+                                    >
+                                        Teaching Staff
+                                    </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/Teaching" className="dropdown-link">
-                                            Teaching Staff
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to="/NonTeaching" className="dropdown-link">
-                                            Non-Teaching Staff
-                                        </NavLink>
+                                    <NavLink
+                                        to="/NonTeaching"
+                                        className={({ isActive }) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                        }
+                                    >
+                                        Non-Teaching Staff
+                                    </NavLink>
                                     </li>
                                 </ul>
-                            </li>
-
-                            <li>
-                                <NavLink to="/academics" className="nav-link">
-                                    Academics
-                                </NavLink>
+                                </div>
                             </li>
                             <li>
-                                <NavLink to="/clubs" className="nav-link">
+                                <NavLink
+                                to="/Academics"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
                                     Clubs
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/events" className="nav-link">
+                                <NavLink
+                                to="/Event"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
                                     Events
                                 </NavLink>
                             </li>
+                            
                             <li>
-                                <NavLink to="/placements" className="nav-link">
-                                    Placements & Careers
+                                <NavLink
+                                to="/Academics"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
+                                    Academics
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/contact" className="nav-link">
-                                    Contact Us
+                                <NavLink
+                                to="/Placements"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
+                                Placements & Career Opportunities
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink
+                                to="/Contact"
+                                    className={({isActive}) =>
+                                        `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
+                                    }
+                                >
+                                    Contact us
                                 </NavLink>
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-
-            {/* CSS Styling for NavLink */}
-            <style>
-                {`
-                .nav-link {
-                    display: block;
-                    padding: 10px 16px;
-                    color: #374151;
-                    text-decoration: none;
-                    transition: color 0.3s;
-                }
-                .nav-link:hover, .nav-link.active {
-                    color: #1D4ED8;
-                }
-                .dropdown-link {
-                    display: block;
-                    padding: 10px 16px;
-                    color: #374151;
-                    background: white;
-                    text-decoration: none;
-                    transition: background 0.3s;
-                }
-                .dropdown-link:hover {
-                    background: #f3f4f6;
-                }
-            `}
-            </style>
         </header>
     );
 }
