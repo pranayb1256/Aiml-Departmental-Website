@@ -1,6 +1,6 @@
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
-import User from "../models/user.Schema.js"
+import User from "../models/user.models.js"
 import { blacklistToken } from "../utils/tokenBlacklist.js";
 
 // Register Admin (Run once)
