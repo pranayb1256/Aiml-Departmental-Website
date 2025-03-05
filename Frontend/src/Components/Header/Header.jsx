@@ -90,7 +90,7 @@ export default function Header() {
                             </li>
                             <li>
                                 <NavLink
-                                to="/Events"
+                                to="/Event"
                                     className={({isActive}) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                     }
@@ -98,9 +98,10 @@ export default function Header() {
                                     Events
                                 </NavLink>
                             </li>
+                            
                             <li>
                                 <NavLink
-                                to="/StudentLife"
+                                to="/Academics"
                                     className={({isActive}) =>
                                         `block py-2 pr-4 pl-3 duration-200 ${isActive ? "text-black-700" : "text-gray-700"} border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-blue-700 lg:p-0`
                                     }
