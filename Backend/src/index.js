@@ -2,8 +2,9 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
-import authRoutes from "./routes/auth.js";
+import cookieParser from "cookie-parser"
 import imgRoutes from "./routes/images.routes.js";
+import authRoutes from "./routes/auth.routes.js";
 
 
 const app = express();
@@ -21,10 +22,13 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(cookieParser()); // middleware to parse cookies
 
 
 //routes 
 app.use('/upload', imgRoutes);
+//admin routes
+app.use("/admin/protected/:id", authRoutes);
 
 
 //connection 

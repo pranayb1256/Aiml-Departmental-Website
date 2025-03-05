@@ -1,6 +1,6 @@
 import { asyncHandler } from '../utils/asyncHandler.js'
 import { ApiError } from '../utils/ApiError.js'
-import { ApiResponse } from '../utils/ApiResponse.js'
+import { ApiResponse } from '../utils/Apiresponse.js';
 import Image from '../models/image.models.js'
 import Alumni from '../models/alumni.models.js'
 import ClubEvent from '../models/clubEvent.models.js'
@@ -29,15 +29,15 @@ const handleImage = asyncHandler(async (req, res) => {
     const homepageEvent = [];
     for (const eachFilePath of recruitersLocalPathArr) {
         const path = await uploadOnCloudinary(eachFilePath);
-        recruiters.push(path.url); // Push URL after each upload completes
+        recruiters.push(path.secure_url); // Push URL after each upload completes
     }
     for (const eachFilePath of studGalleryLocalPathArr) {
         const path = await uploadOnCloudinary(eachFilePath);
-        studentGallery.push(path.url); // Push URL after each upload completes
+        studentGallery.push(path.secure_url); // Push URL after each upload completes
     }
     for (const eachFilePath of homepageEventLocalPathArr) {
         const path = await uploadOnCloudinary(eachFilePath);
-        homepageEvent.push(path.url); // Push URL after each upload completes
+        homepageEvent.push(path.secure_url); // Push URL after each upload completes
     }
 
 

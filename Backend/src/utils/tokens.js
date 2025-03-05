@@ -1,9 +1,11 @@
 import jwt from "jsonwebtoken"
 
-const generateToken = (id) => {
+const generateToken = (email, password, role, res) => {
     const token = jwt.sign(
         {
-            id
+            email,
+            password,
+            role
         },
         process.env.JWT_SECRET,
         {
@@ -11,10 +13,10 @@ const generateToken = (id) => {
         }
     );
 
-    res.cookie("token", token, {
-        maxAge: 1 * 24 * 60 * 60 * 1000, // 1 day
+    res.cookie("JWT_TOKEN", token, {
+        maxAge: 24 * 60 * 60 * 1000, // 1 day
         httpOnly: true,
-        sameSite: "strict",
+        sameSite: "None", // Allows cross-origin requests to clear cookies
         secure: process.env.NODE_ENV === "development",
     });
 
