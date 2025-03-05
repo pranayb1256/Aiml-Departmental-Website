@@ -18,7 +18,7 @@ export default function Header() {
             />
           </Link>
 
-          {/* Hamburger Menu Button (Visible on Small Screens) */}
+          {/* Hamburger Menu */}
           <button
             className="text-gray-700 lg:hidden"
             onClick={() => setIsOpen(!isOpen)}
@@ -58,39 +58,26 @@ export default function Header() {
                 </NavLink>
               </li>
 
-              {/* Dropdown Example */}
+              {/* Faculty Dropdown */}
               <li className="relative group">
                 <NavLink
-                  className={({ isActive }) =>
-                    `block py-2 px-4 duration-200 ${
-                      isActive ? "text-blue-700" : "text-gray-700"
-                    } hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`
-                  }
+                  className="block py-2 px-4 duration-200 text-gray-700 hover:bg-gray-100 lg:hover:bg-transparent lg:p-0"
                 >
                   Faculty
                 </NavLink>
                 <ul className="absolute left-0 mt-2 w-48 bg-white shadow-md opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-opacity duration-300">
                   <li>
-                    <NavLink
-                      to="/HodDesk"
-                      className="block py-2 px-4 hover:bg-gray-100"
-                    >
+                    <NavLink to="/HodDesk" className="block py-2 px-4 hover:bg-gray-100">
                       HOD Desk
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      to="/Teaching"
-                      className="block py-2 px-4 hover:bg-gray-100"
-                    >
+                    <NavLink to="/Teaching" className="block py-2 px-4 hover:bg-gray-100">
                       Teaching Staff
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink
-                      to="/NonTeaching"
-                      className="block py-2 px-4 hover:bg-gray-100"
-                    >
+                    <NavLink to="/NonTeaching" className="block py-2 px-4 hover:bg-gray-100">
                       Non-Teaching Staff
                     </NavLink>
                   </li>
@@ -98,38 +85,27 @@ export default function Header() {
               </li>
 
               <li>
-                <NavLink
-                  to="/Academics"
-                  className={({ isActive }) =>
-                    `block py-2 px-4 duration-200 ${
-                      isActive ? "text-blue-700" : "text-gray-700"
-                    } hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`
-                  }
-                >
+                <NavLink to="/Clubs" className={({ isActive }) => `block py-2 px-4 duration-200 ${isActive ? "text-blue-700" : "text-gray-700"} hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`}>
+                  Clubs
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/Event" className={({ isActive }) => `block py-2 px-4 duration-200 ${isActive ? "text-blue-700" : "text-gray-700"} hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`}>
+                  Events
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/Academics" className={({ isActive }) => `block py-2 px-4 duration-200 ${isActive ? "text-blue-700" : "text-gray-700"} hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`}>
                   Academics
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/Placements"
-                  className={({ isActive }) =>
-                    `block py-2 px-4 duration-200 ${
-                      isActive ? "text-blue-700" : "text-gray-700"
-                    } hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`
-                  }
-                >
+                <NavLink to="/Placements" className={({ isActive }) => `block py-2 px-4 duration-200 ${isActive ? "text-blue-700" : "text-gray-700"} hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`}>
                   Placements & Career Opportunities
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/Contact"
-                  className={({ isActive }) =>
-                    `block py-2 px-4 duration-200 ${
-                      isActive ? "text-blue-700" : "text-gray-700"
-                    } hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`
-                  }
-                >
+                <NavLink to="/Contact" className={({ isActive }) => `block py-2 px-4 duration-200 ${isActive ? "text-blue-700" : "text-gray-700"} hover:bg-gray-100 lg:hover:bg-transparent lg:p-0`}>
                   Contact Us
                 </NavLink>
               </li>
