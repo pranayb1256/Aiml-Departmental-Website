@@ -5,12 +5,10 @@ import "aos/dist/aos.css";
 import "swiper/css";
 import "swiper/css/pagination";
 import BrandSlider from "../Slider/BrandSlider";
-import Footer from "../Footer/Footer";
 import ImageCarousel from "../ImageCarousel/ImageCarousel";
 import ImageGallery from "../ImageGallery/ImageGallery";
 import { motion } from 'framer-motion';
 import Card from "../Card/Card";
-
 function Home() {
 useEffect(() => {
 AOS.init({ duration: 1000 });

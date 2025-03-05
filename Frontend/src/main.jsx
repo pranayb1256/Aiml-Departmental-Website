@@ -10,6 +10,7 @@ import HodDesk from "./Components/Faculty/HodDesk";
 import AboutPage from './Components/About/About';
 import Event from './Components/EventPage/Event';
 import Academics from './Components/Academics/Academics';
+import Placements from './Components/Placements/Placements';
 // import AdminDashboard from './Components/Admin/AdminDashboard.jsx';
 // import Login from './Components/Auth/Login.jsx';  //
 
@@ -29,6 +30,7 @@ const router = createBrowserRouter(
       <Route path="/NonTeaching" element={<NonTeaching />} /> 
       <Route path="/Event" element={<Event/>} /> 
       <Route path="/Academics" element={<Academics/>} /> 
+      <Route path="/Placements" element={<Placements/>} /> 
      
       {/* <Route path="login" element={<Login />} /> */}
       {/* <Route path="admin" element={<PrivateRoute element={<AdminDashboard />} />} /> */}

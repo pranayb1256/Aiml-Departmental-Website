@@ -1,34 +1,66 @@
 import { motion } from "framer-motion";
 import { Accordion, AccordionItem } from "../ui/accordion";
-const syllabus = [
-  { semester: "Semester 1", subjects: ["Mathematics I", "Programming Basics", "Physics"] },
-  { semester: "Semester 2", subjects: ["Mathematics II", "Data Structures", "OOP in Java"] },
-  { semester: "Semester 3", subjects: ["DBMS", "Operating Systems", "Computer Networks"] },
-  { semester: "Semester 4", subjects: ["Artificial Intelligence", "Machine Learning", "Web Technologies"] },
-];
+import { Button } from "../ui/button";
+import { useState } from "react";
+import { FaTrophy, FaBook, FaChalkboardTeacher, FaDownload, FaUserGraduate, FaLaptopCode, FaCalendarAlt } from "react-icons/fa";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const toppers = {
+  FE: [
+    { name: "Alice Johnson", image: "/images/alice.jpg", percentage: "92%" },
+    { name: "Bob Smith", image: "/images/bob.jpg", percentage: "91%" },
+  ],
+  SE: [
+    { name: "Charlie Brown", image: "/images/charlie.jpg", percentage: "93%" },
+    { name: "David Lee", image: "/images/david.jpg", percentage: "90%" },
+  ],
+  TE: [
+    { name: "Eva Green", image: "/images/eva.jpg", percentage: "95%" },
+    { name: "Frank White", image: "/images/frank.jpg", percentage: "94%" },
+  ],
+  BE: [
+    { name: "Grace Hall", image: "/images/grace.jpg", percentage: "96%" },
+    { name: "Henry Ford", image: "/images/henry.jpg", percentage: "95%" },
+  ],
+};
+
+const syllabus = {
+  FE: "https://muquestionpapers.com/syllabus/fe",
+  SE: "https://muquestionpapers.com/syllabus/se",
+  TE: "https://muquestionpapers.com/syllabus/te",
+  BE: "https://muquestionpapers.com/syllabus/be",
+};
+
+const subjects = {
+  FE: ["Mathematics-I", "Physics", "Programming Fundamentals", "Engineering Mechanics"],
+  SE: ["Data Structures", "Computer Networks", "Object-Oriented Programming", "Database Systems"],
+  TE: ["Machine Learning", "Cloud Computing", "Operating Systems", "Software Engineering"],
+  BE: ["Deep Learning", "Blockchain Technology", "Cyber Security", "AI Ethics"],
+};
 
 const faculty = [
-  { name: "Dr. A. Sharma", designation: "Professor - AI & ML" },
-  { name: "Dr. B. Mehta", designation: "Associate Professor - Deep Learning" },
-  { name: "Dr. C. Iyer", designation: "Assistant Professor - NLP" },
-];
-
-const achievements = [
-  "Team AIML won 1st place in the National Hackathon 2024",
-  "Published 10+ research papers in AI and Deep Learning",
-  "Students secured internships at Google, Microsoft, and Tesla",
-];
-
-const faqs = [
-  { question: "What is the scope of AIML?", answer: "AIML has immense opportunities in software, robotics, data science, and more." },
-  { question: "What programming languages are used?", answer: "Python, Java, and C++ are commonly used in AI & ML applications." },
-  { question: "Are there any research opportunities?", answer: "Yes, students can collaborate with faculty on AI/ML research projects." },
+  { name: "Dr. John Doe", designation: "Professor & HOD", specialization: "Artificial Intelligence" },
+  { name: "Ms. Jane Smith", designation: "Assistant Professor", specialization: "Machine Learning" },
+  { name: "Dr. Robert Brown", designation: "Associate Professor", specialization: "Cyber Security" },
 ];
 
 const Academics = () => {
+  const [selectedYear, setSelectedYear] = useState("FE");
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  };
+
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
-      {/* Title Section */}
       <motion.h1
         className="text-center text-4xl font-bold mb-8 text-gray-800"
         initial={{ opacity: 0, y: -20 }}
@@ -37,60 +69,75 @@ const Academics = () => {
       >
         Academics - <span className="text-blue-500">AIML</span>
       </motion.h1>
-      
-      {/* Curriculum & Syllabus */}
+
+      {/* Topper Section */}
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Curriculum & Syllabus</h2>
-        {syllabus.map((sem, index) => (
-          <div key={index} className="mb-3 p-4 bg-white rounded-lg shadow-md">
-            <h3 className="text-lg font-semibold text-blue-600">{sem.semester}</h3>
-            <ul className="list-disc ml-5 text-gray-700">
-              {sem.subjects.map((subject, idx) => (
-                <li key={idx}>{subject}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-      
-      {/* Faculty Information */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Faculty Information</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {faculty.map((member, index) => (
-            <motion.div
-              key={index}
-              className="p-4 bg-white rounded-lg shadow-md"
-              whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3 }}
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex items-center">
+          <FaTrophy className="text-yellow-500 mr-2" /> Toppers
+        </h2>
+        <div className="flex space-x-4 mb-4">
+          {Object.keys(toppers).map((year) => (
+            <Button
+              key={year}
+              className={`px-4 py-2 rounded ${selectedYear === year ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-800"}`}
+              onClick={() => setSelectedYear(year)}
             >
-              <h3 className="text-lg font-bold text-gray-800">{member.name}</h3>
-              <p className="text-gray-600">{member.designation}</p>
-            </motion.div>
+              {year}
+            </Button>
           ))}
         </div>
+        <Slider {...sliderSettings}>
+          {toppers[selectedYear].map((topper, index) => (
+            <div key={index} className="text-center">
+              <img src={topper.image} alt={topper.name} className="mx-auto w-40 h-40 rounded-full shadow-md" />
+              <h3 className="mt-2 text-lg font-semibold text-gray-800">{topper.name}</h3>
+              <p className="text-gray-600">{topper.percentage}</p>
+            </div>
+          ))}
+        </Slider>
       </div>
-      
-      {/* Student Achievements */}
+
+      {/* Subjects and Downloads */}
       <div className="mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Student Achievements</h2>
-        <ul className="list-disc ml-5 text-gray-700">
-          {achievements.map((achieve, index) => (
-            <li key={index} className="p-2 bg-white rounded-lg shadow-md mb-2">{achieve}</li>
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex items-center">
+          <FaBook className="text-green-500 mr-2" /> Subjects & Downloads
+        </h2>
+        <ul className="list-disc pl-6 text-gray-700 mb-4">
+          {subjects[selectedYear].map((subject, index) => (
+            <li key={index}>{subject}</li>
+          ))}
+        </ul>
+        <Button as="a" href={syllabus[selectedYear]} target="_blank" rel="noopener noreferrer" className="bg-blue-500 text-white px-4 py-2 rounded flex items-center">
+          <FaDownload className="mr-2" /> Download Syllabus PDF
+        </Button>
+      </div>
+
+      {/* Faculty Section */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex items-center">
+          <FaChalkboardTeacher className="text-red-500 mr-2" /> Faculty
+        </h2>
+        <ul className="list-disc pl-6 text-gray-700">
+          {faculty.map((member, index) => (
+            <li key={index}>{member.name} - {member.designation} ({member.specialization})</li>
           ))}
         </ul>
       </div>
-      
-      {/* FAQs */}
-      <div>
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">Frequently Asked Questions</h2>
-        <Accordion>
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} title={faq.question}>
-              <p className="text-gray-600">{faq.answer}</p>
-            </AccordionItem>
-          ))}
-        </Accordion>
+
+      {/* Student Activities */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex items-center">
+          <FaUserGraduate className="text-purple-500 mr-2" /> Student Activities & Research
+        </h2>
+        <p>Our department encourages student participation in AI projects, hackathons, and research conferences.</p>
+      </div>
+
+      {/* Events */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-semibold text-gray-700 mb-4 flex items-center">
+          <FaCalendarAlt className="text-orange-500 mr-2" /> Upcoming Events
+        </h2>
+        <p>Stay updated with departmental seminars, workshops, and guest lectures.</p>
       </div>
     </div>
   );
