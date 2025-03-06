@@ -1,7 +1,3 @@
-Here's a structured README file for your project, "Aiml-Departmental-Website." Please customize each section to accurately reflect your project's specifics.
-
----
-
 # Aiml-Departmental-Website
 
 This repository contains the codebase for the Artificial Intelligence and Machine Learning (AIML) Department's official website. The website serves as a platform for students, faculty, and visitors to access information about the department, its programs, events, and resources.
