@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements, Navigate } from 'react-router-dom';
 import Layout from './Layout.jsx';
-import Home from './Components/Home/Home.jsx';
-import Teaching from './Components/Faculty/Teaching.jsx'
-import NonTeaching from './Components/Faculty/NonTeaching.jsx'
-import HodDesk from "./Components/Faculty/HodDesk";
-import AboutPage from './Components/About/About';
-import Event from './Components/EventPage/Event';
-import Academics from './Components/Academics/Academics';
-import Placements from './Components/Placements/Placements';
+import Home from './pages/Home';
+import Teaching from './pages/Teaching';
+import NonTeaching from './pages/NonTeaching'
+import HodDesk from "./pages/HodDesk";
+import About from './pages/About';
+import Event from './pages/Event';
+import Academics from './pages/Academics';
+import Placements from './pages/Placements';
 // import AdminDashboard from './Components/Admin/AdminDashboard.jsx';
 // import Login from './Components/Auth/Login.jsx';  //
 
@@ -24,7 +24,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
       <Route index element={<Home />} />
-      <Route path="/about" element={<AboutPage />} /> 
+      <Route path="/about" element={<About />} /> 
       <Route path="/HodDesk" element={<HodDesk/>} />
       <Route path="/Teaching" element={<Teaching />} /> 
       <Route path="/NonTeaching" element={<NonTeaching />} /> 

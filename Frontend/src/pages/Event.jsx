@@ -6,9 +6,9 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useState } from "react";
-import { Card, CardContent } from "../ui/card";
-import { Button } from "../ui/button";
-import { Dialog, DialogContent, DialogTitle } from "../ui/dialog";
+import { Card, CardContent } from "../Components/ui/card";
+import { Button } from "../Components/ui/button";
+import { Dialog, DialogContent, DialogTitle } from "../Components/ui/dialog";
 
 const events = [
   {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, CardContent } from "../ui/card";
+import { Card, CardContent } from "../Components/ui/card";
 import {
   FaUniversity,
   FaBriefcase,

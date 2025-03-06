@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { Accordion, AccordionItem } from "../ui/accordion";
-import { Button } from "../ui/button";
+import { Accordion, AccordionItem } from "../Components/ui/accordion";
+import { Button } from "../Components/index";
 import { useState } from "react";
 import { FaTrophy, FaBook, FaChalkboardTeacher, FaDownload, FaUserGraduate, FaLaptopCode, FaCalendarAlt } from "react-icons/fa";
 import Slider from "react-slick";

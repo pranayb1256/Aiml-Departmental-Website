@@ -40,7 +40,7 @@ const labs = [
   { name: "Computer Graphics & Multimedia Lab", room: "207", pcs: 20, equipment: "Processor – i5 (6-Core, 12M Cache, 2.9GHz to 4.3GHz), Memory: 8GB, Hard drive: 1TB", cost: "Rs.10,21,400.00" },
 ];
 
-export default function AboutPage() {
+export default function About() {
   const [selected, setSelected] = useState(null);
 
   return (
