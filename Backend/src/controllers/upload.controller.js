@@ -15,13 +15,13 @@ const handleImage = asyncHandler(async (req, res) => {
     const homepageEventLocalPathArr = req.files?.homepageEvent?.map(file => file.path)
 
 
-   
+
     // const obj = req.files;
     // // Validate the number of images 
     // if (obj.recruiters.length !== 11 || obj.studentGallery.length !== 11 || obj.homepageEvent.length !== 11) {
     //     throw new ApiError(400, "Each field must have exactly 11 images.")
     // }
-    
+
 
     //Uploading arr of file string paths on cloudinary 
     const recruiters = [];
@@ -40,15 +40,26 @@ const handleImage = asyncHandler(async (req, res) => {
         homepageEvent.push(path.secure_url); // Push URL after each upload completes
     }
 
-
     const img = await Image.create({
         recruiters,
         studentGallery,
         homepageEvent,
     });
 
-    console.log("here")
-    new ApiResponse(200, img, "Successfully stored array of urls in DB!");
+    console.log(img);
+    res.status(200).json(new ApiResponse(200, img, "Successfully stored array of urls in DB!"));
+});
+
+const getImages = asyncHandler(async (req, res) => {
+    // Fetch all image documents from the database
+    const images = await Image.find();
+    console.log(images)
+
+    if (!images || images.length === 0) {
+        throw new ApiError(400, "Imgs not found")
+    }
+
+    res.status(200).json(new ApiResponse(200, images, "Images retrieved successfully"));
 });
 
 
@@ -57,5 +68,5 @@ const handleAlumni = asyncHandler(async () => { });
 const handleClubEvent = asyncHandler(async () => { });
 const handleFaculty = asyncHandler(async () => { });
 
-export { handleImage, handleAlumni, handleClubEvent, handleFaculty }
+export { handleImage, getImages, handleAlumni, handleClubEvent, handleFaculty };
 
