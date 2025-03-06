@@ -1,1 +1,1 @@
-export const DB_NAME = "no"
+export const DB_NAME = "Aiml-Department"
