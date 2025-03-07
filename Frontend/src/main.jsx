@@ -11,15 +11,13 @@ import About from './pages/About';
 import Event from './pages/Event';
 import Academics from './pages/Academics';
 import Placements from './pages/Placements';
-// import AdminDashboard from './Components/Admin/AdminDashboard.jsx';
-// import Login from './Components/Auth/Login.jsx';  //
+import Dashboard from './pages/Dashboard'
+import Login from './pages/Login';
 
-// // Protect Admin Route
-// const PrivateRoute = ({ element }) => {
-//   const token = localStorage.getItem("token");
-//   return token ? element : <Navigate to="/login" />;
-// };
-
+const PrivateRoute = ({ element }) => {
+  const token = localStorage.getItem("token");
+  return token ? element : <Navigate to="/login" />;
+};
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -31,7 +29,8 @@ const router = createBrowserRouter(
       <Route path="/Event" element={<Event/>} /> 
       <Route path="/Academics" element={<Academics/>} /> 
       <Route path="/Placements" element={<Placements/>} /> 
-     
+      <Route path="login" element={<Login />} />
+      <Route path="dashboard" element={<PrivateRoute element={<Dashboard />} />} />
       {/* <Route path="login" element={<Login />} /> */}
       {/* <Route path="admin" element={<PrivateRoute element={<AdminDashboard />} />} /> */}
     </Route>

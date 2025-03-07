@@ -185,7 +185,10 @@ if (progress
     </div>
   </section>
 
-  <ImageCarousel />
+  <div className="px-4 md:px-8 lg:px-16">
+        <ImageCarousel />
+      </div>
+
    <section className="bg-white py-16 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl font-extrabold text-gray-700 mb-4">
@@ -225,7 +228,9 @@ if (progress
           </div>
         </div>
       </section>
-  <ImageGallery />
+      <div className="px-4 md:px-8 lg:px-16">
+        <ImageGallery />
+      </div>
   </div>
   );
   }

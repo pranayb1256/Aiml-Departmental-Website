@@ -1,14 +1,17 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import "./App.css";
 
 function Layout() {
+  const location = useLocation();
+  const hideHeaderFooter = location.pathname === "/login" || location.pathname.startsWith("/dashboard");
+
   return (
     <>
-      <Header />
+      {!hideHeaderFooter && <Header />}
       <Outlet /> {/* This renders the current route's component */}
-      <Footer />
+      {!hideHeaderFooter && <Footer />}
     </>
   );
 }

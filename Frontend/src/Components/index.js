@@ -8,6 +8,9 @@ import { Avatar, AvatarImage, AvatarFallback } from "../Components/ui/avatar"
 import {Button, buttonVariants} from "../Components/ui/button"
 import {Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "../Components/ui/card"
 import {Dialog,DialogContent,DialogTitle,DialogTrigger} from "../Components/ui/dialog"
+import Announcements from "../Components/Dashboard/Announcements";
+import Notices from "../Components/Dashboard/Notices";
+import ClubEvents from "../Components/Dashboard/ClubEvents";
 export{ 
   Header, 
   Footer, 
@@ -22,5 +25,6 @@ export{
   Button, 
   buttonVariants,
   Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent,
-  Dialog,DialogContent,DialogTitle,DialogTrigger
+  Dialog,DialogContent,DialogTitle,DialogTrigger,
+  Announcements, Notices, ClubEvents
 };
