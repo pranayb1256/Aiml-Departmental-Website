@@ -20,7 +20,7 @@ export const useAdminStore = create((set) => ({
             toast.error("Failed to register admin.");
         }
     },
-    loginAdmin: async ({ id, email, password }) => {
+    loginAdmin: async ({ adminId, email, password }) => {
         try {
             const res = await axiosInstance.post(`/admin/login`, { email, password, adminId });
             set({ isAuthenticated: true });
