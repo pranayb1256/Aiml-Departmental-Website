@@ -1,9 +1,26 @@
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer"
-import Home from "./Home/Home";
-import Navbar from "./Navbar/Navbar"
-import BrandSlider from "./Slider/BrandSlider";
-import ImageCarousel from './ImageCarousel/ImageCarousel'
-import ImageGallery from './ImageGallery/ImageGallery'
-import Card from "./Card/Card";
-export {Header,Footer,Home,Navbar,BrandSlider,ImageCarousel,ImageGallery,Card}
+import Header from "../Components/Header/Header";
+import Footer from "../Components/Footer/Footer";
+import BrandSlider from "../Components/Slider/BrandSlider";
+import ImageCarousel from '../Components/ImageCarousel/ImageCarousel';
+import ImageGallery from '../Components/ImageGallery/ImageGallery';
+import { Accordion, AccordionItem } from "../Components/ui/accordion";
+import { Avatar, AvatarImage, AvatarFallback } from "../Components/ui/avatar"
+import {Button, buttonVariants} from "../Components/ui/button"
+import {Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from "../Components/ui/card"
+import {Dialog,DialogContent,DialogTitle,DialogTrigger} from "../Components/ui/dialog"
+export{ 
+  Header, 
+  Footer, 
+  BrandSlider, 
+  ImageCarousel, 
+  ImageGallery,
+  Accordion, 
+  AccordionItem,
+  Avatar, 
+  AvatarImage, 
+  AvatarFallback,
+  Button, 
+  buttonVariants,
+  Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent,
+  Dialog,DialogContent,DialogTitle,DialogTrigger
+};

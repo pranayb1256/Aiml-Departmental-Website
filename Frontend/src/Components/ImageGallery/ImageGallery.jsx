@@ -1,11 +1,11 @@
 const ImageGallery = () => {
   const images = [
-    { src: "/images/Student_Image/IMG_5030.jpg", size: "row-span-2 col-span-1" },
-    { src: "/images/Student_Image/IMG_5031.jpg", size: "row-span-1 col-span-1" },
-    { src: "/images/Student_Image/IMG_5032.jpg", size: "row-span-1 col-span-2" },
-    { src: "/images/Student_Image/IMG_5046.jpg", size: "row-span-2 col-span-1" },
-    { src: "/images/Student_Image/IMG_5067.jpg", size: "row-span-1 col-span-1" },
-    { src: "/images/Student_Image/IMG_5860.jpg", size: "row-span-1 col-span-2" },
+    { src: "/images/studGallery/IMG_5030.jpg", size: "row-span-2 col-span-1" },
+    { src: "/images/studGallery/IMG_5031.jpg", size: "row-span-1 col-span-1" },
+    { src: "/images/studGallery/IMG_5032.jpg", size: "row-span-1 col-span-2" },
+    { src: "/images/studGallery/IMG_5046.jpg", size: "row-span-2 col-span-1" },
+    { src: "/images/studGallery/IMG_5067.jpg", size: "row-span-1 col-span-1" },
+    { src: "/images/studGallery/IMG_5860.jpg", size: "row-span-1 col-span-2" },
   ];
 
   return (

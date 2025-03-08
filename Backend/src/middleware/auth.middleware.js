@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import { isTokenBlacklisted } from "../utils/tokenBlacklist.js";
 import Admin from "../models/admin.models.js";
 import { ApiError } from "../utils/ApiError.js";
 

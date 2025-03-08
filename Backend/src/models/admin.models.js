@@ -20,13 +20,7 @@ const adminSchema = new Schema({
     },
     jwtToken: {
         type: String,
-    },
-    role: {
-        type: String,
-        enum: ["admin"], //if document is created with a role which is not admin then mongoose will throw error
-        default: "admin",
-        lowercase: true
-    },
+    }
 });
 
 adminSchema.pre("save", async function (next) {

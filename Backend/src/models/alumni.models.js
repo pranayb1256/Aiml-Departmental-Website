@@ -5,25 +5,8 @@ const alumniSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    photo: {
-        type: String
-    },
-    degree: {
+    jobTitle: {
         type: String,
-        required: true
-    },
-    departmentFeedback: {
-        type: String,
-        required: true
-    },
-    currentPosition: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true
     },
     linkedIn: {
         type: String,
@@ -35,6 +18,9 @@ const alumniSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    photo: {
+        type: String
+    }
 
 }, { timestamps: true });
 

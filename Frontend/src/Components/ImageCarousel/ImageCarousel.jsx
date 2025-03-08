@@ -6,16 +6,16 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const eventImages = [
-  "/images/ImageGall/IMG_4091.jpg",
-  "/images/ImageGall/IMG_4097.jpg",
-  "/images/ImageGall/IMG_4274.jpg",
-  "/images/ImageGall/IMG_4298.jpg",
-  "/images/ImageGall/IMG_4321.jpg",
-  "/images/ImageGall/IMG_5010.jpg",
-  "/images/ImageGall/IMG_5012.jpg",
-  "/images/ImageGall/IMG_5014.jpg",
-  "/images/ImageGall/IMG_5037.jpg",
-  "/images/ImageGall/IMG_5047.jpg",
+  "/images/homepageEvent/IMG_4091.jpg",
+  "/images/homepageEvent/IMG_4097.jpg",
+  "/images/homepageEvent/IMG_4274.jpg",
+  "/images/homepageEvent/IMG_4298.jpg",
+  "/images/homepageEvent/IMG_4321.jpg",
+  "/images/homepageEvent/IMG_5010.jpg",
+  "/images/homepageEvent/IMG_5012.jpg",
+  "/images/homepageEvent/IMG_5014.jpg",
+  "/images/homepageEvent/IMG_5037.jpg",
+  "/images/homepageEvent/IMG_5047.jpg",
 ];
 
 const ImageCarousel = () => {

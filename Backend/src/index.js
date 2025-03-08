@@ -3,8 +3,8 @@ import cors from "cors";
 import dotenv from "dotenv";
 import connectDB from "./db/index.js";
 import cookieParser from "cookie-parser"
-import imgRoutes from "./routes/images.routes.js";
-import authRoutes from "./routes/auth.routes.js";
+import homepageRoutes from "./routes/homePage.routes.js";
+import adminRoutes from "./routes/admin.routes.js";
 
 
 const app = express();
@@ -25,10 +25,13 @@ app.use(express.static("public"));
 app.use(cookieParser()); // middleware to parse cookies
 
 
-//routes 
-app.use('/upload', imgRoutes);
+//hompage routes 
+app.use('/api/homepage', homepageRoutes);
 //admin routes
-app.use("/admin/protected/:id", authRoutes);
+app.use("/api/admin", adminRoutes);
+
+
+
 
 
 //connection 
